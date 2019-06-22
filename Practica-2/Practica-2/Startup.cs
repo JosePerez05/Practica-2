@@ -29,6 +29,7 @@ namespace Practica_2
         {
             var connection = Configuration.GetConnectionString("Dev");
             services.AddDbContext<StudentDBContext>(options => options.UseSqlServer(connection));
+            services.AddTransient<IStudentService, StudentService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
